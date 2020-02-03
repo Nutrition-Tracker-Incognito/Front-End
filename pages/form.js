@@ -4,9 +4,10 @@ import Link from 'next/link'
 
 const GithubForm = () => {
 
-  const [handle, setHandle] = useState()
+  const [values, setValues] = useState({ handle: '', character: ''})
 
-  const handleChange = e => setHandle(e.target.value)
+  const handleHandleChange = e => setValues({ ...values, handle: e.target.value })
+  const handleCharacterChange = e => setValues({ ...values, character: e.target.value })
 
   return (
     <Container>
@@ -15,11 +16,27 @@ const GithubForm = () => {
           <Form.Input
             label='Enter your GitHub handle'
             placeholder="GitHub Handle"
-            onChange={handleChange}
+            value={values.handle}
+            onChange={handleHandleChange}
           />
           <Link
-            href='/p/[handle]'
-            as={`/p/${handle}`}>
+            href='/p/h/[handler]'
+            as={`/p/h/${values.handle}`}>
+              <a>Submit</a>
+            </Link>
+        </Form>
+      </Segment>
+      <Segment>
+        <Form>
+          <Form.Input
+            label='Enter a charater ID'
+            placeholder="Character ID"
+            value={values.character}
+            onChange={handleCharacterChange}
+          />
+          <Link
+            href='/character/[character]'
+            as={`/character/${values.character}`}>
               Submit
             </Link>
         </Form>
