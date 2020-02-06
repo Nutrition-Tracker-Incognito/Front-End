@@ -10,7 +10,7 @@ export default async (req, res) => {
 
   const graphQLClient = new GraphQLClient(API, {
     header: {
-      authorization: `Bearer a2660fec70a4775b1f2ccb3424defb717635dcd2`,
+      authorization: `Bearer process.env.ACCESS_TOKEN`,
     }
   })
 
