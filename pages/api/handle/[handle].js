@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request'
-import token from '../../secrets'
+import token from '../../../secrets'
 
 console.log(token)
 

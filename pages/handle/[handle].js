@@ -2,7 +2,7 @@ import { GraphQLClient } from 'graphql-request'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import { Card, Icon, Segment } from 'semantic-ui-react'
-import { token } from '../../../secrets'
+import { token } from '../../secrets'
 
 function fetcher(url) {
   return fetch(url).then(r => r.json());

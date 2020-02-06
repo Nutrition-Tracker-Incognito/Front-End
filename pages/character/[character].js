@@ -7,13 +7,13 @@ import fetch from 'isomorphic-unfetch'
 
 const fetcher = url => fetch(url).then(r => r.json())
 
-const CharacterPage = ({ data }) => {
-  // const { query } = useRouter()
-  // const initialData = props.data
-  // const { data, error } = useSWR(`/api/character/${query.character}`, fetcher, { initialData })
-
-  // if (error) return <div>{`${query.character} Failed to load: ${error}`}</div>
-  if (!data) return <div>Loading...</div>
+const CharacterPage = (props) => {
+  const { query } = useRouter()
+  const initialData = props.data
+  const { data, error } = useSWR(`/api/character/${query.character}`, fetcher, { initialData })
+// 
+  if (error) return <div>{`${query.character} Failed to load: ${error}`}</div>
+  if (!props.data) return <div>Loading...</div>
 
   const { name, image, episode } = data.character
 
